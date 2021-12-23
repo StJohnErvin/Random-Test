@@ -11,7 +11,6 @@ function App() {
   const url = 'https://randomuser.me/api/'
   const defaultImage = 'https://randomuser.me/api/portraits/men/23.jpg'
 
-  // common conventions
   const [isLoading, setIsLoading] = useState(true)
   const [randomPerson, setRandomPerson] = useState(null)
   const [title, setTitle] = useState('name')
@@ -21,9 +20,7 @@ function App() {
     setIsLoading(true)
     const response = await fetch(url)
     const data = await response.json()
-    // let's have a look at the API
     const person = data.results[0]
-    // destructure values
     const {
       phone,
       email,
@@ -35,7 +32,6 @@ function App() {
         street: { number, name },
       },
     } = person
-    // es6 feature
     const newPerson = {
       image,
       phone,
